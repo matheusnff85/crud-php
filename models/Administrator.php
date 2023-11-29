@@ -1,5 +1,6 @@
 <?php
-class Administrator extends connectionDB{
+
+class Administrator extends db{
 	
 	private function view_users(){
 		try {
@@ -8,7 +9,7 @@ class Administrator extends connectionDB{
 			$result->execute();
 			return $result->fetchAll(PDO::FETCH_OBJ);	
 		} catch (Exception $e) {
-			die('Erro ao executar a requisição (view_users) '.$e->getMessage());
+			die('Erro na requisição (view_users) '.$e->getMessage());
 		} finally{
 			$result = null;
 		}
@@ -26,11 +27,11 @@ class Administrator extends connectionDB{
 									$data['nome'],
 									$data['sobrenome'],
 									$data['email'],
-                                    $data['telefone']
+									$data['telefone']
 									)
 							);			
 		} catch (Exception $e) {
-			die('Erro ao executar a requisição (register_users) '.$e->getMessage());
+			die('Erro na requisição (register_users) '.$e->getMessage());
 		} finally{
 			$result = null;
 		}
@@ -48,12 +49,12 @@ class Administrator extends connectionDB{
 									$data['nome'],
 									$data['sobrenome'],
 									$data['email'],
-                                    $data['telefone'],
+									$data['telefone'],
 									$data['id']
 									)
 							);			
 		} catch (Exception $e) {
-			die('Erro ao executar a requisição (update_user) '.$e->getMessage());
+			die('Erro na requisição (update_user) '.$e->getMessage());
 		} finally{
 			$result = null;
 		}
@@ -69,7 +70,7 @@ class Administrator extends connectionDB{
 			$result = $this->open()->prepare($SQL);
 			$result->execute(array($id));			
 		} catch (Exception $e) {
-			die('Erro ao executar a requisição (delete_user) '.$e->getMessage());
+			die('Erro na requisição (delete_user) '.$e->getMessage());
 		} finally{
 			$result = null;
 		}
