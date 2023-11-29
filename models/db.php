@@ -1,6 +1,6 @@
 <?php 
 
-Class connectionDB{
+Class db{
     private $server = "mysql:host=localhost;dbname=cruddb";
     private $username = "root";
     private $password = "";
